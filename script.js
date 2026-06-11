@@ -83,35 +83,6 @@ $(document).ready(function () {
     }
   });
 
-  // ===== Contact form validation =====
-  $('#contactForm').on('submit', function (e) {
-    e.preventDefault();
-    let valid = true;
-
-    $('#contactForm input, #contactForm textarea').each(function () {
-      if ($(this).val().trim() === '') {
-        $(this).addClass('is-invalid');
-        valid = false;
-      } else {
-        $(this).removeClass('is-invalid');
-      }
-    });
-
-    const email = $('#email').val().trim();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      $('#email').addClass('is-invalid');
-      valid = false;
-    }
-
-    if (valid) {
-      $('#formSuccess').removeClass('d-none');
-      $('#contactForm')[0].reset();
-    } else {
-      $('#formSuccess').addClass('d-none');
-    }
-  });
-
   // ===== Navbar background on scroll + active link highlight =====
   $(window).on('scroll', function () {
     const scrollPos = $(this).scrollTop();
